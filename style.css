@@ -25,7 +25,7 @@ html {
     min-height: 100px;
     padding: 0 25px;
     box-sizing: border-box;
-    background-color: #e1800a;`
+    background-color: #e1800a;
     box-shadow: 0 0 10px 2px black; 
     z-index: 100;
     backface-visibility: hidden;
