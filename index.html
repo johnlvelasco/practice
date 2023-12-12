@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <title>CS2 Executes</title>
+    </head>
+    <body class="body"> 
+        <!-- Static Frames -->
+        <div class="top-frame">
+            <img class="logo" src="icons/logo.png" alt="Counter Strike 2 Executes">
+            <button class="btnAdd">Add Execute</button>
+            <br/> 
+        </div>
+        <!-- Dynamic Frames -->
+        <div class="content-frame"> 
+            <div class="filter-frame">
+                <div class="search-bar filter-title">
+                    <label>Search</label>
+                    <input type="text" class="search" placeholder="CT Smoke Mirage"> 
+                    <br/>
+                </div> 
+                <div id="filter-map">
+                    <label class="filter-title">Maps</label>
+                    <br/>
+                </div>
+                <br/>
+                <div id="filter-grenade">
+                    <label class="filter-title">Grenades</label>
+                    <br/>
+                </div>
+                <br/>
+                <div id="filter-team">
+                    <label class="filter-title">Teams</label>
+                    <br/>
+                </div>
+            </div>
+
+            <!-- Execute Object's Row-->
+            <div class="list"> 
+                <div class="row"> 
+                    <div class="iconBanner">
+                        <img class="icons" src="icons/mirage.png">
+                        <img class="icons" src="icons/terrorist.png">
+                        <img class="icons" src="icons/smoke.png">
+                    </div>
+                    <div class="rightBanner">
+                        <label class="desc">Mirage CT Smoke</label>
+                        <div class="media">
+                            <img src="icons/lineup.png">
+                            <img src="icons/landing.png">
+                            <video src="icons/Video.mp4" controls="controls">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script> 
+    </body>
+</html>

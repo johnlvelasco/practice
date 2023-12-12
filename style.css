@@ -1,0 +1,146 @@
+:root { 
+    color-scheme: dark;
+}
+html { 
+    background-color: #1F1F1F; 
+    color: white; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+.body { 
+    display: flex; 
+    flex-direction: column;  
+}
+.logo-button { 
+    background-color: transparent;
+    border-color: transparent transparent transparent; 
+}
+.top-frame { 
+    flex: 0 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;  
+    height: 100px;
+    position: relative; 
+    top: 0; left: 0; right: 0; 
+    min-height: 100px;
+    padding: 0 25px;
+    box-sizing: border-box;
+    background-color: #e1800a;`
+    box-shadow: 0 0 10px 2px black; 
+    z-index: 100;
+    backface-visibility: hidden;
+    width: 100%; 
+}
+.logo { 
+    flex: 0 0 fit-content; 
+    height: 100%;  
+}
+.btnAdd { 
+    margin-left: auto; 
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: white; 
+    border-radius: 4px;
+    padding: 8px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black; 
+    border: 1px solid black;
+    line-height: 28px;
+}
+
+.filter-frame { 
+    display: flex; 
+    flex: 0 0 auto; 
+    flex-direction: column;
+    height: 100%; 
+    max-width: 20%; 
+    flex-shrink: 0;
+    padding: 10px; 
+}
+.filter-title { 
+    padding: 10px 0;
+    color: darkgrey;
+    font-weight: bold; 
+}
+.search-bar * { 
+    font-size: 100%; 
+}
+.search { 
+    width: 90%;
+}
+::placeholder { 
+    opacity: 75%; 
+}
+.filter-frame * { 
+    font-size: 100%;  
+}
+
+.content-frame { 
+    flex: 1 1 auto; 
+    display: flex; 
+}
+
+.list {
+    flex: 1 1 auto; 
+    display: flex; 
+    flex-direction: column;
+    height: 100%; 
+}
+
+.row { 
+    border-color: black !important; 
+    border-width: 1; 
+    border-style: solid;
+    height: 400px;  
+    width: 100%; 
+    display: flex;  
+}
+
+.iconBanner { 
+    display: flex; 
+    justify-content: space-between;
+    flex-direction: column; 
+    flex: 0 0 auto; 
+    padding: 20px; 
+    width: 5%; 
+    border-color: cyan;  
+    border-width: 1; 
+    border-style: solid;
+}
+.icons { 
+    aspect-ratio: auto;
+    width: 100%; 
+    height: auto; 
+    overflow-y: hidden;
+}
+
+.rightBanner {    
+    flex: 1 1 auto; 
+    display: flex;
+    flex-direction: column;
+    border-color: pink;   
+    border-width: 1; 
+    border-style: solid;
+}
+.desc { 
+    font-size: 40px;
+    height: 50px;
+    flex: 0 0 fit-content; 
+    border-color: blueviolet;   
+    border-width: 1; 
+    border-style: solid;
+}
+.media { 
+    flex: 1 1 auto; 
+    max-height: calc(100% - 50px); 
+    display: flex; 
+    border-color: darkred;  
+    border-width: 1; 
+    border-style: solid;
+    overflow-y: auto; 
+}
+.media img, video { 
+    max-width: 100%; 
+}
