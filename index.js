@@ -1,42 +1,45 @@
 // Objects that represent a map, grenade, and team.
-function Map(name, icon) {    
+function Map(name, url) {    
     this.name = name;
-    this.icon = icon;
+    this.url = url;
 }
-function Grenade(name, icon) {    
+function Grenade(name, url) {    
     this.name = name;
-    this.icon = icon;
+    this.url = url;
 }
-function Team(name, icon) {
+function Team(name, url) {
     this.name = name;
-    this.icon = icon;
+    this.url = url;
 }
-function Execute(name, map, grenade, team) { 
-    this.name = name;
+function Execute(desc, map, grenade, team, media) { 
+    this.desc = desc;
     this.map = map;
     this.grenade = grenade;
     this.team = team;
+    this.media = media; 
 }
-const maps = [
-    new Map("Mirage", null), 
-    new Map("Inferno", null), 
-    new Map("Nuke", null), 
-    new Map("Overpass", null), 
-    new Map("Vertigo", null), 
-    new Map("Anubis", null), 
-    new Map("Ancient", null),
-    //new Map("Train", null), 
-    //new Map("Dust II", null)
+const maps = [ //https://drive.google.com/uc?export=view&id=
+    new Map("Mirage", "https://drive.google.com/uc?export=view&id=1qlJNaJEZj_rj8xwiXrQGH_7Y7rayrJTI"), 
+    new Map("Inferno", "https://drive.google.com/uc?export=view&id=1usryoJ7KAdMRpHdkKqAVEKRhU0YibGM2"), 
+    new Map("Nuke", "https://drive.google.com/uc?export=view&id=1mKDjSV4YJ6fEKYK6tUNp6Ar0Aoap6ADm"), 
+    new Map("Overpass", "https://drive.google.com/uc?export=view&id=1CvCYBAiSLGmAlKDEGmUzGXO1_Xf_1xXv"), 
+    new Map("Vertigo", "https://drive.google.com/uc?export=view&id=1ddbazvH-munOgZDkiFQN_9-bdIELst6j"), 
+    new Map("Anubis", "https://drive.google.com/uc?export=view&id=1cUSEIxQrv4BMZky5ZZbjF7I4EN83Z8zl"), 
+    new Map("Ancient", "https://drive.google.com/uc?export=view&id=1JfMXst3hhjNptRtk2AniDApBLKkDCvE2"),
+    new Map("Train", "https://drive.google.com/uc?export=view&id=1t9BSNdX8s5Nr0Ks0x6He9FF_VZBkU4Uj"), 
+    new Map("Dust II", "https://drive.google.com/uc?export=view&id=1AsUQVduzn4pve7Z_ks6mlq-CD-IGLMlE"), 
+    new Map("Cache", "https://drive.google.com/uc?export=view&id=1ZtB2pF-vrpn7FrwrmCu6KjCqxlNLiGgr")
 ]; 
 const grenades = [
-    new Grenade("Fire", null), 
-    new Grenade("Smoke", null), 
-    new Grenade("Flash", null), 
-    new Grenade("High Explosive", null) 
+    new Grenade("Molotov", "https://drive.google.com/uc?export=view&id=1682IVXdw5F1e8lJapv1MOvyQvE0zvlK6"), 
+    new Grenade("Smoke", "https://drive.google.com/uc?export=view&id=1vCEtYK1nZ-D73_5C67D_jFyauSm4N1Fw"), 
+    new Grenade("Flash", "https://drive.google.com/uc?export=view&id=12Ouf7-Jq0FQn5aTq5Sk-ekr1CyZittl6"), 
+    new Grenade("High Explosive", "https://drive.google.com/uc?export=view&id=1SSvFzCPqMxDc-G0EVWgi2H-qgsltS61r"), 
+    new Grenade("Incendiary", "https://drive.google.com/uc?export=view&id=1ZtB2pF-vrpn7FrwrmCu6KjCqxlNLiGgr")
 ];
 const teams = [ 
-    new Team("Terrorists", null), 
-    new Team("Counter Terrorists", null)
+    new Team("Terrorists", "https://drive.google.com/uc?export=view&id=1F0wXoOJzG0xFfA6ZcBV-lL-fpTRMzJYD"), 
+    new Team("Counter Terrorists", "https://drive.google.com/uc?export=view&id=1b5hLEJ13MWdPHBJ9jF5XlBnSTD22Uuvl")
 ] 
 
 /* Load Filters */
@@ -53,17 +56,10 @@ function loadFilters(arr, label) {
         document.getElementById(`filter-${label}`).innerHTML += html;
     }
 }
-
-function AddExecute(execute) { 
-    //switch to Add/Edit View 
-    
+function toHome() { 
+    document.location.href = "index.html";
 }
 
-/* Need to do
-    1. make AddExecute function with an Execute parameter
-    2. Add Execute button switches to new View
-    3. Add Home button that switches to home view. 
-
-*/
-
-
+function toAddExecute() { 
+    document.location.href = "addExecute.html";
+}

@@ -7,8 +7,10 @@
     <body class="body"> 
         <!-- Static Frames -->
         <div class="top-frame">
-            <img class="logo" src="icons/logo.png" alt="Counter Strike 2 Executes">
-            <button class="btnAdd">Add Execute</button>
+            <button onclick="toHome()" class="logo-button logo" type="submit">
+                <img class="logo" src="icons/logo.png" alt="Counter Strike 2 Executes">
+            </button>
+            <button class="btnAdd" onclick="toAddExecute()">Add Execute</button>
             <br/> 
         </div>
         <!-- Dynamic Frames -->
@@ -38,10 +40,10 @@
             <!-- Execute Object's Row-->
             <div class="list"> 
                 <div class="row"> 
-                    <div class="iconBanner">
-                        <img class="icons" src="icons/mirage.png">
-                        <img class="icons" src="icons/terrorist.png">
-                        <img class="icons" src="icons/smoke.png">
+                    <div class="iconBanner"> 
+                        <img class="icons" id="mapImage" src="https://drive.google.com/uc?export=view&id=1qlJNaJEZj_rj8xwiXrQGH_7Y7rayrJTI">
+                        <img class="icons" id="teamImage" src="https://drive.google.com/uc?export=view&id=1F0wXoOJzG0xFfA6ZcBV-lL-fpTRMzJYD">
+                        <img class="icons" id="grenadeImage" src="https://drive.google.com/uc?export=view&id=1vCEtYK1nZ-D73_5C67D_jFyauSm4N1Fw">
                     </div>
                     <div class="rightBanner">
                         <label class="desc">Mirage CT Smoke</label>
