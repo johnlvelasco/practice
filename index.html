@@ -35,27 +35,31 @@
                     <label class="filter-title">Teams</label>
                     <br/>
                 </div>
+                <br/>
+                <div id="filter-throw">
+                    <label class="filter-title">Throws</label>
+                    <br/>
+                </div>
             </div>
-
             <!-- Execute Object's Row-->
             <div class="list"> 
                 <div class="row"> 
                     <div class="iconBanner"> 
-                        <img class="icons" id="mapImage" src="https://drive.google.com/uc?export=view&id=1qlJNaJEZj_rj8xwiXrQGH_7Y7rayrJTI">
-                        <img class="icons" id="teamImage" src="https://drive.google.com/uc?export=view&id=1F0wXoOJzG0xFfA6ZcBV-lL-fpTRMzJYD">
-                        <img class="icons" id="grenadeImage" src="https://drive.google.com/uc?export=view&id=1vCEtYK1nZ-D73_5C67D_jFyauSm4N1Fw">
+                        <img class="icons" id="mapImage">
+                        <img class="icons" id="teamImage">
+                        <img class="icons" id="grenadeImage">
                     </div>
                     <div class="rightBanner">
-                        <label class="desc">Mirage CT Smoke</label>
-                        <div class="media">
-                            <img src="icons/lineup.png">
-                            <img src="icons/landing.png">
-                            <video src="icons/Video.mp4" controls="controls">
+                        <div class="desc desc-banner">
+                           <div id="description" class="desc"></div> 
+                           <div id="throw" class="desc throw"></div>
                         </div>
+                        <div id="media" class="media"></div>
                     </div>
                 </div>
             </div>
         </div>
         <script src="index.js"></script> 
+        <script type="module" src="main.js"></script>
     </body>
 </html>

@@ -6,10 +6,17 @@ html {
     color: white; 
     font-family: Arial, Helvetica, sans-serif;
 }
+.header { 
+    display: flex; 
+    flex-direction: column; 
+    margin: 0 auto; 
+}
 .body { 
     display: flex; 
-    flex-direction: column;  
+    flex-direction: column;
+    margin: 0 auto; 
 }
+
 .logo-button { 
     background-color: transparent;
     border-color: transparent transparent transparent; 
@@ -67,7 +74,7 @@ html {
 .search-bar * { 
     font-size: 100%; 
 }
-.search { 
+.search{ 
     width: 90%;
 }
 ::placeholder { 
@@ -131,6 +138,18 @@ html {
     border-color: blueviolet;   
     border-width: 1; 
     border-style: solid;
+    min-height: 50px; 
+}
+
+.description { 
+    width: 50%; 
+}
+.desc-banner { 
+    display: flex; 
+}
+.throw { 
+    margin-left: auto;
+    margin-right: 20px; 
 }
 .media { 
     flex: 1 1 auto; 
@@ -144,3 +163,18 @@ html {
 .media img, video { 
     max-width: 100%; 
 }
+.desc-input { 
+    display: flex; 
+}
+.desc-selection { 
+    padding: 20px 20px 10px 20px; 
+}
+.radio-buttons { 
+    display: flex; 
+    flex-direction: row; 
+    padding: 10px;
+}
+.radio-buttons div { 
+    padding: 0 0 10px 10px; 
+}
+

@@ -1,0 +1,124 @@
+Description,Grenade,Throw,Map,Team,Position
+Window Smoke,Smoke,D + JUMP,Mirage,T,T
+Conn Smoke,Smoke,JUMP,Mirage,T,T
+Top Mid Smoke,Smoke,STANDING,Mirage,T,T
+Mid Flash from T,Flash,W + JUMP,Mirage,T,T to B
+Window Molly,Molly,W,Mirage,T,Top Mid
+Stairs Smoke,Smoke,JUMP,Mirage,T,T to A
+Jungle Smoke,Smoke,STANDING,Mirage,T,T to A
+CT Smoke,Smoke,JUMP,Mirage,T,T to A
+A Flash,Flash,JUMP,Mirage,T,T to A
+Market Window Smoke,Smoke,JUMP,Mirage,T,Apartments
+Van Molly,Molly,W,Mirage,T,Apartments
+B Flash from Apartments,Flash,W,Mirage,T,Apartments
+B Anti-Rush Molly,Molly,W,Mirage,CT,B
+Cat Flash from B,Flash,W + JUMP,Mirage,CT,B to Cat
+A Anti-Rush Molly,Molly,W,Mirage,CT,Ticket
+Mid Flash from A,Flash,W,Mirage,CT,A to Conn
+Ramp Flash,Flash,W,Overpass,T,Outside Playground
+Dumpster Smoke (Long),Smoke,JUMP,Overpass,T,Long
+Bank Smoke (Long),Smoke,STANDING,Overpass,T,Long
+Dumpster Smoke (Bathroom),Smoke,STANDING,Overpass,T,Bathroom
+Bank Smoke (Bathroom),Smoke,JUMP,Overpass,T,Bathroom
+A Flash,Flash,JUMP,Overpass,T,Bathroom
+Lower Connector Flash,Flash,W,Overpass,T,Connector Ladder
+Water Pop Flash,Flash,STANDING,Overpass,T,Connector
+Heaven Smoke ,Smoke,STANDING,Overpass,T,Water
+Barrels Molly,Molly,JUMP,Overpass,T,Water
+B Flash,Flash,STANDING,Overpass,T,Water
+Ramp Molly,Molly,W + JUMP,Overpass,CT,CT to Mid
+Water Molly,Molly,W,Overpass,CT,Left Graffiti
+Door HE,HE,STANDING,Overpass,CT,Left Graffiti
+Monster Smoke,Smoke,JUMP,Overpass,CT,CT
+Construction Smoke,Smoke,JUMP,Vertigo,T,T
+Ramp Flash,Flash,W,Vertigo,T,Ramp
+Back Site Smoke,Smoke,STANDING,Vertigo,T,Upper Ramp
+Tetris Molly,Molly,STANDING,Vertigo,T,Upper Ramp
+Back Site Flash,Flash,W,Vertigo,T,Upper Ramp
+Mid Flash,Flash,W,Vertigo,T,T Mid 
+Mid Connector Molly,Molly,STANDING,Vertigo,T,T Mid 
+CT Smoke,Smoke,STANDING,Vertigo,T,T Mid 
+Left Generator Smoke ,Smoke,STANDING,Vertigo,T,B Stairs
+Right Generator Smoke,Smoke,STANDING,Vertigo,T,B Stairs
+Headshot Molly,Molly,STANDING,Vertigo,T,B Stairs
+B Flash,Flash,STANDING,Vertigo,T,B Stairs
+Ramp Molly,Molly,W,Vertigo,CT,Upper Ramp
+Ramp HE,HE,W,Vertigo,CT,Upper Ramp
+Ramp Smoke,Smoke,W,Vertigo,CT,Elevator
+Ramp Flash,Flash,STANDING,Vertigo,CT,A
+Short Flash,Flash,STANDING,Vertigo,CT,A
+Mid Molly,Molly,W,Vertigo,CT,Mid
+Mid HE,HE,JUMP + LC + RC,Vertigo,CT,Mid
+B Stairs Molly,Molly,W,Vertigo,CT,B
+B Stairs Pop Flash,Flash,STANDING,Vertigo,CT,B
+Red Room Smoke,Smoke,JUMP,Ancient,T,T
+Donut Smoke,Smoke,JUMP,Ancient,T,T
+Mid Flash,Flash,W + JUMP,Ancient,T,T
+CT Smoke,Smoke,CTRL + JUMP,Ancient,T,Outside A Halls 
+Temple Smoke,Smoke,JUMP,Ancient,T,Outside A Halls 
+A Molly,Molly,W,Ancient,T,A Main
+Left B Smoke,Smoke,JUMP,Ancient,T,Outside B Doors
+Right B Smoke,Smoke,JUMP,Ancient,T,Outside B Doors
+B Flash,Flash,JUMP,Ancient,T,Outside B Doors
+B Molly,Molly,STANDING,Ancient,T,B Doors
+Right Mid Molly,Molly,W,Ancient,CT,Red Room
+Elbow Smoke,Smoke,JUMP,Ancient,CT,CT
+B Ramp Molly,Molly,JUMP,Ancient,CT,Back B
+B Lane Molly,Molly,W + JUMP,Ancient,CT,Back B
+Mid Flash,Flash,W,Inferno,T,T Ramp
+Car Molly,Molly,W,Inferno,T,Banana
+Banana Flash,Flash,JUMP,Inferno,T,Alt Aps Stairs
+Coffin Smoke,Smoke,JUMP,Inferno,T,Banana
+Newbox Molly,Molly,JUMP,Inferno,T,Car
+B God Flash,Flash,JUMP,Inferno,T,Banana
+Arch Side Smoke,Smoke,JUMP,Inferno,T,Under Window
+Top Mid Flash,Flash,STANDING,Inferno,T,Mexico
+Library Smoke,Smoke,CTRL,Inferno,T,Top Mid 
+A Flash,Smoke,CTRL,Inferno,T,Apartments
+Ramp Banana Smoke,Smoke,JUMP,Inferno,CT,Top Mid
+Mid Smoke,Smoke,W + JUMP,Inferno,CT,CT
+Mid Molly,Molly,W,Inferno,CT,Top Mid
+Mid HE,HE,W,Inferno,CT,Top Mid
+Banana Molly,Molly,W,Inferno,CT,Car
+Left Wall Smoke,Smoke,JUMP,Nuke,T,T
+Right Wall Smoke,Smoke,JUMP,Nuke,T,T
+Top Hut Molly,Molly,W + JUMP,Nuke,T,Roof
+A Molly,Molly,JUMP,Nuke,T,Roof
+A Flash,Flash,JUMP,Nuke,T,Roof
+Vent HE ,HE,W,Nuke,T,Lobby
+Vent Smoke,Smoke,W,Nuke,T,Lobby
+Ramp Smoke,Smoke,W,Nuke,T,Trophy
+Ramp Flash,Flash,W,Nuke,T,Trophy
+Squeaky Molly,Molly,W,Nuke,CT,Heaven
+Outside Flash,Flash,W,Nuke,CT,Outside
+Outside Lurk Smoke,Smoke,W,Nuke,CT,Outside
+Ramp Molly,Molly,W,Nuke,CT,Ramp
+Ramp Smoke,Smoke,W,Nuke,CT,Ramp
+Mid Smoke,Smoke,JUMP,Anubis,T,T
+Connector Smoke,Smoke,CTRL + JUMP,Anubis,T,T
+Mid Flash,Flash,W,Anubis,T,T Mid 
+Mid Door Molly,Molly,STANDING,Anubis,T,T Mid 
+B Temple Smoke,Smoke,STANDING,Anubis,T,B Long 
+Left B Smoke,Smoke,JUMP,Anubis,T,B Long 
+Right B Smoke (Plat),Smoke,JUMP,Anubis,T,B Long 
+B Flash,Flash,STANDING,Anubis,T,B Long 
+Pizza Molly,Molly,W,Anubis,T,B Long 
+Left B Smoke (Simple),Smoke,W,Anubis,T,B Long 
+A to Mid Smoke,Smoke,STANDING,Anubis,T,Water
+Heaven Smoke ,Smoke,W + JUMP,Anubis,T,Water
+Headshot Molly,Molly,W,Anubis,T,Water
+A Flash,Flash,JUMP + LC + RC,Anubis,T,Water
+A Pillar Molly,Molly,W,Anubis,T,A Entry
+Pillar Flash,Flash,W,Anubis,T,A Entry
+Mid Molly,Molly,W,Anubis,CT,CT Mid
+Mid Smoke,Smoke,W,Anubis,CT,CT Mid
+B Long Flash,Flash,W,Anubis,CT,B to Long
+Xbox Smoke,Smoke,JUMP,Dust2,T,T
+Long Corner Smoke,Smoke,STANDING,Dust2,T,Car
+CT Smoke,Smoke,STANDING,Dust2,T,Dumpster
+Long Cross Smoke,Smoke,W,Dust2,T,Long Corner
+B Door Smoke,Smoke,STANDING,Dust2,T,Tunnels
+A Long Flash,Flash,W + JUMP,Dust2,T,T to Long
+A Long HE ,HE,W,Dust2,CT,Long
+A Long Molly,Molly,W,Dust2,CT,Long
+CT Mid Smoke,Smoke,W,Dust2,CT,CT
