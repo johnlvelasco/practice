@@ -1,6 +1,7 @@
 :root { 
     color-scheme: dark;
 }
+
 html { 
     background-color: #1F1F1F; 
     color: white; 
@@ -96,31 +97,8 @@ html {
     height: 100%; 
 }
 
-.row { 
-    border-color: black !important; 
-    border-width: 1; 
-    border-style: solid;
-    height: 400px;  
-    width: 100%; 
-    display: flex;  
-}
-
-.iconBanner { 
-    display: flex; 
-    justify-content: space-between;
-    flex-direction: column; 
-    flex: 0 0 auto; 
-    padding: 20px; 
-    width: 5%; 
-    border-color: cyan;  
-    border-width: 1; 
-    border-style: solid;
-}
 .icons { 
-    aspect-ratio: auto;
-    width: 100%; 
-    height: auto; 
-    overflow-y: hidden;
+    max-width: 100%;
 }
 
 .rightBanner {    
@@ -141,16 +119,6 @@ html {
     min-height: 50px; 
 }
 
-.description { 
-    width: 50%; 
-}
-.desc-banner { 
-    display: flex; 
-}
-.throw { 
-    margin-left: auto;
-    margin-right: 20px; 
-}
 .media { 
     flex: 1 1 auto; 
     max-height: calc(100% - 50px); 
@@ -178,3 +146,99 @@ html {
     padding: 0 0 10px 10px; 
 }
 
+section {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	
+	& + section {
+		margin-top: 2.5em;
+	}
+}
+
+summary {
+	position: relative;
+	cursor: pointer;
+	padding: 1em .5em;
+	list-style: none; 
+	
+	&:hover {
+		background-color: #252525;
+	}
+	div {
+		display: flex;
+		align-items: center;
+	}
+	
+	h3 {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	small {
+		color: #999;
+		font-size: .875em;
+	}
+	
+	strong {
+		font-weight: 700;
+	}
+	span, .icons { 
+        display: flex;
+        justify-content: flex-end;
+		flex-shrink: 0;
+    }
+    
+	span {
+		width: 4rem;
+		height: 4rem;
+		border-radius: 10px;
+		display: flex;
+		flex-shrink: 0;
+		align-items: center;
+		justify-content: center;
+		margin-right: 1.25em;
+	}
+    span:last-child { 
+        margin-left:auto; 
+        margin-right: 0; 
+    }
+
+	.executeRow, * { 
+        margin-right: 1.25em;
+    }
+	&:focus {
+		outline: none;
+	}
+	
+	.plus {
+		color: #289672;
+	}
+}
+
+details {
+	border-bottom: 1px solid #b5bfd9;
+	&[open] {
+		box-shadow: -3px 0 0 #b5bfd9;
+	}
+	
+	&:first-of-type {
+		border-top: 1px solid #b5bfd9;
+	}
+	& > div {
+		padding: 2em 2em 0;
+		font-size: .875em;
+	}
+}
+
+dl {
+	display: flex;
+	flex-wrap: wrap;
+	dt {
+		font-weight: 700;
+	}
+	div {
+		margin-right: 4em;
+		margin-bottom: 2em;
+	}
+}

@@ -101,12 +101,3 @@ function loadExecutes(execute) {
     imgHtml = `<img class="icons" id="mapImage" src="${icons[execute.map]}"></img>`; 
     videoHtml = `<video id="video" src="${icons[execute.video]}" controls="controls"></video>`
 }
-
-const mysql = require('mysql');
-
-const conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'my_database'
-});
