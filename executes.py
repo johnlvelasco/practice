@@ -13,7 +13,13 @@ cursor.execute("select * from executes")
 data = cursor.fetchall()    
 print(df['Throw'].value_counts())
 
-
+def get_throw_icon(throw): 
+    throw = throw.replace("+", "")
+    throw = throw.replace(" ", "")
+    path = f'./icons/{throw.lower()}_throw.png'
+    # parse throw by removing all whitespace & symbols
+    # return path of icon
+    return path
 
 def write_table_html(): 
     html = "<section>"
@@ -40,7 +46,9 @@ def write_table_html():
                 </summary>
                 <div>
                     <dl>
-                        <div id="preview-media" class="media"></div>
+                        <span>
+                            <img class="key", src="{get_throw_icon(i[2])}">
+                        </span>
                     </dl>
                 </div>
                 <td>{i[0]}</td>

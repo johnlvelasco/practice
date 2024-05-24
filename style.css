@@ -189,6 +189,10 @@ summary {
 		flex-shrink: 0;
     }
     
+    span, .key { 
+
+    }
+    
 	span {
 		width: 4rem;
 		height: 4rem;
