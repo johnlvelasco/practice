@@ -65,24 +65,17 @@ html {
     height: 100%; 
     max-width: 20%; 
     flex-shrink: 0;
-    padding: 10px; 
+    padding: 10px;
+    font-size: 100%;  
 }
 .filter-title { 
     padding: 10px 0;
     color: darkgrey;
     font-weight: bold; 
 }
-.search-bar * { 
-    font-size: 100%; 
-}
-.search{ 
-    width: 90%;
-}
+
 ::placeholder { 
     opacity: 75%; 
-}
-.filter-frame * { 
-    font-size: 100%;  
 }
 
 .content-frame { 
@@ -99,24 +92,6 @@ html {
 
 .icons { 
     max-width: 100%;
-}
-
-.rightBanner {    
-    flex: 1 1 auto; 
-    display: flex;
-    flex-direction: column;
-    border-color: pink;   
-    border-width: 1; 
-    border-style: solid;
-}
-.desc { 
-    font-size: 40px;
-    height: 50px;
-    flex: 0 0 fit-content; 
-    border-color: blueviolet;   
-    border-width: 1; 
-    border-style: solid;
-    min-height: 50px; 
 }
 
 .media { 
@@ -150,10 +125,26 @@ section {
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
-	
 	& + section {
 		margin-top: 2.5em;
 	}
+}
+
+.search-bar { 
+    display: flex; 
+    align-items: center;
+}
+
+.search-bar label { 
+    padding-right: 10px; 
+    color: white; 
+    font-size: 1.5rem;
+}
+
+.search-bar .search { 
+    flex-grow: 1;
+    width: auto;
+    font-size: 1.5rem;
 }
 
 summary {
@@ -188,10 +179,7 @@ summary {
         justify-content: flex-end;
 		flex-shrink: 0;
     }
-    
-    span, .key { 
 
-    }
     
 	span {
 		width: 4rem;

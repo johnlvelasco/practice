@@ -17,8 +17,6 @@ def get_throw_icon(throw):
     throw = throw.replace("+", "")
     throw = throw.replace(" ", "")
     path = f'./icons/{throw.lower()}_throw.png'
-    # parse throw by removing all whitespace & symbols
-    # return path of icon
     return path
 
 def write_table_html(): 
@@ -36,8 +34,7 @@ def write_table_html():
                         </span>
                         <h3>
                             <strong id="preview-description">{i[0]}</strong>
-                            <small id="preview-throw">{i[2]}</small>
-                            <small id="preview-position">{i[5]}</small>
+                            <small id="preview-position">Throw from {i[5]}</small>
                         </h3>
                         <span>
                             <img class="icons", id="preview-team" src="./icons/{i[4]}.png">
@@ -50,13 +47,7 @@ def write_table_html():
                             <img class="key", src="{get_throw_icon(i[2])}">
                         </span>
                     </dl>
-                </div>
-                <td>{i[0]}</td>
-                <td>{i[1]}</td>  
-                <td>{i[2]}</td>  
-                <td>{i[3]}</td>  
-                <td>{i[4]}</td>  
-                <td>{i[5]}</td>  
+                </div> 
             </details>    
         """ 
     html += "</section>" 
@@ -85,7 +76,7 @@ def upload():
         count+=1 
 
 # def write_admin_table(): 
-#     html =  """
+#     html =  """131
 #         <table> 
 #             <tr> 
 #                 <th>Description</th>
