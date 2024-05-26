@@ -1,14 +1,22 @@
-function switchView() { 
-    document.getElementById('adminList').style.display = 'none'; 
-    document.getElementById('adminEdit').style.display = 'inline';
-    document.getElementById('adminAddExecute').style.display = 'none';
+function switchView(str) { 
+    if (str == 'edit') { 
+        document.getElementById('adminList').style.display = 'none'; 
+        document.getElementById('adminEdit').style.display = 'inline';
+        document.getElementById('adminAddExecute').style.display = 'none';
+    } 
+    else {
+        document.getElementById('adminEdit').style.display = 'none'; 
+        document.getElementById('adminList').style.display = 'flex';
+        document.getElementById('adminAddExecute').style.display = 'inline';
+    }
+        
 }
 
 function loadExecute() { 
     //description
-    desc = document.getElementById('desc-input')
-    desc.setAttribute('value', execute.description);
-    onDescriptionChange(desc)
+    desc = document.getElementById('desc-input');
+    desc.setAttribute('value', execute.description); 
+    document.getElementById("preview-description").innerHTML = execute.description;
     //grenade 
     document.getElementById(`rb-${execute.grenade.toLowerCase()}`).click();
     //throw
@@ -20,7 +28,8 @@ function loadExecute() {
     //position
     pos = document.getElementById('position-input')
     pos.setAttribute('value', execute.position);
-    onPositionChange(pos)
+    document.getElementById("preview-position").innerHTML = execute.position;
+    //onPositionChange(pos)
 }   
 
 const execute = {
@@ -41,7 +50,7 @@ function onEdit(des, gre, thr, map, team, pos) {
     execute.team = team;
     execute.position = pos;
     console.log(execute);
-    switchView();
+    switchView('edit');
     loadExecute();
 }
 
@@ -89,37 +98,34 @@ function onVideoUpload() {
 
 function onMapChange(src) { 
     execute.map = src.value;    
-    path = `./icons/${execute.map}.png`
+    path = `./icons/${execute.map}.png`;
     document.getElementById("preview-map").src = path; 
-    document.getElementById('error-message').innerHTML = ''; 
 }
 function onGrenadeChange(src) { 
     execute.grenade = src.value; 
-    path = `./icons/${execute.grenade}.png`
+    path = `./icons/${execute.grenade}.png`;
     document.getElementById("preview-grenade").src = path; 
-    document.getElementById('error-message').innerHTML = ''; 
 }
 function onTeamChange(src) { 
     execute.team = src.value; 
-    path = `./icons/${execute.team}.png`
+    path = `./icons/${execute.team}.png`;
     document.getElementById("preview-team").src = path; 
-    document.getElementById('error-message').innerHTML = ''; 
 }
 function onThrowChange(src) { 
-    document.getElementById('preview-throw').innerText = src.value; 
     execute.throw = src.value; 
-    document.getElementById('error-message').innerHTML = ''; 
+    parsed = `${execute.throw.toLowerCase().replaceAll(/\s/g,'')}`
+    parsed = `${parsed.replaceAll('+','')}`
+    path = `./icons/${parsed}_throw.png`;
+    document.getElementById('preview-throw').src = path; 
 }
 function onDescriptionChange(src) { 
     execute.description = src.value;
-    document.getElementById("preview-description").innerHTML = src.value;
-    document.getElementById('error-message').innerHTML = ''; 
+    document.getElementById("preview-description").innerHTML = execute.description;
 }
 
 function onPositionChange(src) { 
     execute.position = src.value;
-    document.getElementById("preview-position").innerHTML = src.value;
-    document.getElementById('error-message').innerHTML = ''; 
+    document.getElementById("preview-position").innerHTML = execute.position;
 }
 
 function inputCheck() { 

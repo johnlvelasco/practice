@@ -58,16 +58,25 @@ html {
     line-height: 28px;
 }
 
+.content-frame { 
+    display: flex; 
+    flex-direction: column;
+}
+
 .filter-frame { 
     display: flex; 
     flex: 0 0 auto; 
-    flex-direction: column;
     height: 100%; 
     max-width: 20%; 
     flex-shrink: 0;
     padding: 10px;
     font-size: 100%;  
 }
+
+.filter-frame div { 
+    display: flex;
+}
+
 .filter-title { 
     padding: 10px 0;
     color: darkgrey;
@@ -217,15 +226,12 @@ details {
 	&:first-of-type {
 		border-top: 1px solid #b5bfd9;
 	}
-	& > div {
-		padding: 2em 2em 0;
-		font-size: .875em;
-	}
 }
 
 dl {
 	display: flex;
 	flex-wrap: wrap;
+    align-items: center;
 	dt {
 		font-weight: 700;
 	}
@@ -233,4 +239,9 @@ dl {
 		margin-right: 4em;
 		margin-bottom: 2em;
 	}
+}
+.key { 
+    max-width: 75%; 
+    padding-left: 1em;
+    align-self: center;
 }

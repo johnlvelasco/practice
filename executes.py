@@ -20,7 +20,13 @@ def get_throw_icon(throw):
     return path
 
 def write_table_html(): 
-    html = "<section>"
+    html = """<section> 
+    <div class="search-bar filter-title">
+        <label>Search</label>
+        <input type="text" class="search" placeholder="CT Smoke Mirage"> 
+        <br/>
+    </div>
+    """
     for i in data:
         html += f"""
             <details> 
@@ -54,7 +60,41 @@ def write_table_html():
     f = open("test.html", "w")
     f.write(html)
     f.close()
-#write_table_html()
+# write_table_html()
+
+def write_admin_table(): 
+    html =  """
+        <table> 
+            <tr> 
+                <th>Description</th>
+                <th>Grenade</th>
+                <th>Throw</th>
+                <th>Map</th>
+                <th>Team</th>
+                <th>Position</th>
+                <th>Edit</th>
+            </tr> 
+    """
+    for i in data:
+        html += f"""
+            <tr> 
+                <td>{i[0]}</td>
+                <td>{i[1]}</td>  
+                <td>{i[2]}</td>  
+                <td>{i[3]}</td>  
+                <td>{i[4]}</td>  
+                <td>{i[5]}</td> 
+                <td> 
+                    <button class="search" onclick="onEdit('{i[0]}', '{i[1]}', '{i[2]}', '{i[3]}', '{i[4]}', '{i[5]}')">Edit</button> 
+                </td>
+            </tr>    
+        """ 
+    html += "</table>" 
+    f = open("test.html", "w")
+    f.write(html)
+    f.close()
+
+write_admin_table()
 
 # Identify media files and set them to variables
 def upload(): 
@@ -74,49 +114,6 @@ def upload():
         dest = f'C:/Users/johnv/repos/practice/media/file_{count}'
         shutil.copy(i, dest)
         count+=1 
-
-# def write_admin_table(): 
-#     html =  """131
-#         <table> 
-#             <tr> 
-#                 <th>Description</th>
-#                 <th>Grenade</th>
-#                 <th>Throw</th>
-#                 <th>Map</th>
-#                 <th>Team</th>
-#                 <th>Position</th>
-#                 <th>Edit</th>
-#             </tr> 
-#     """
-
-#     for i in data:
-#         html += f"""
-#             <tr> 
-#                 <td>{i[0]}</td>
-#                 <td>{i[1]}</td>  
-#                 <td>{i[2]}</td>  
-#                 <td>{i[3]}</td>  
-#                 <td>{i[4]}</td>  
-#                 <td>{i[5]}</td> 
-#                 <td> 
-#                     <button class="search" onclick="onEdit('{i[0]}', '{i[1]}', '{i[2]}', '{i[3]}', '{i[4]}', '{i[5]}')">Edit</button> 
-#                 </td>
-#             </tr>    
-#         """ 
-#     html += "</table>" 
-#     f = open("test.html", "w")
-#     f.write(html)
-#     f.close()
-
-write_table_html()
-
-#write_admin_table()
-
-
-
-
-
-
 
 def create_table(): 
     cursor.execute("create table executes (description varchar(100), grenade varchar(5), throw varchar(20), team varchar(2), position varchar(100))")

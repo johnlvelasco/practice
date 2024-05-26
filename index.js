@@ -81,10 +81,10 @@ const icons = {
     "counter terrorists": "./icons/counter-terrorist.png"
 };
 /* Load Filters */
-loadFilters(maps, "map"); 
-loadFilters(grenades, "grenade"); 
-loadFilters(teams, "team");
-loadFilters(throws, "throw");
+// loadFilters(maps, "map"); 
+// loadFilters(grenades, "grenade"); 
+// loadFilters(teams, "team");
+// loadFilters(throws, "throw");
 
 function loadFilters(arr, label) {
     for (let i = 0; i < arr.length; i++) {
