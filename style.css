@@ -43,7 +43,7 @@ html {
     flex: 0 0 fit-content; 
     height: 100%;  
 }
-.btnAdd { 
+.btn { 
     margin-left: auto; 
     outline: 0;
     border: 0;

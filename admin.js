@@ -1,3 +1,20 @@
+/* AJAX can be used to do many things in this proj
+    1) Read database to create html that we used python and copy-paste for 
+    2) Update webpage without taking it down
+    3) Add/Edit Executes in realtime
+*/
+
+function selectAll() { 
+    xhttp = new XMLHttpRequest(); 
+    xhttp.onload = function() { 
+        const foo = JSON.parse(this.response); 
+        console.log(foo); 
+    }
+    xhttp.open("GET", "http://localhost:3000/getexecutes.php"); 
+    xhttp.send(); 
+}
+selectAll(); 
+
 function switchView(str) { 
     if (str == 'edit') { 
         document.getElementById('adminList').style.display = 'none'; 
