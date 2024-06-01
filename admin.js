@@ -3,13 +3,66 @@
     2) Update webpage without taking it down
     3) Add/Edit Executes in realtime
 */
+var adminTable = `
+    <div class="search-bar filter-title">
+        <label>Search</label>
+        <input type="text" class="search" placeholder="CT Smoke Mirage">
+        <br/>
+    </div>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Grenade</th>
+            <th>Throw</th>
+            <th>Map</th>
+            <th>Team</th>
+            <th>Position</th>
+            <th>Edit</th>
+        </tr>
+`; 
+
+function row(value) { 
+    var execute = { 
+        description: value["Description"], 
+        grenade: value["Grenade"], 
+        throw: value["Throw"], 
+        map: value["Map"], 
+        team: value["Team"], 
+        grenade: value["Grenade"], 
+        position: value["Position"], 
+        id: value["Id"]
+    }; 
+    var row =  `
+    <tr id="execute_${execute.id}">
+        <td>${execute.description}</td>
+        <td>${execute.grenade}</td>
+        <td>${execute.throw}</td>
+        <td>${execute.map}</td>
+        <td>${execute.team}</td>
+        <td>${execute.position}</td>
+        <td>
+            <button class="search" onclick="onEdit('${execute.description}', '${execute.grenade}', '${execute.throw}', '${execute.map}', '${execute.team}', '${execute.position}')">Edit</button>
+        </td>
+    </tr>`; 
+
+    adminTable += row; 
+}
+
+function uploadHtml() { 
+    adminTable += "</table>";
+    document.getElementById("adminList").innerHTML += adminTable;
+}
 
 function selectAll() { 
     xhttp = new XMLHttpRequest(); 
     xhttp.onload = function() { 
-        const foo = JSON.parse(this.response); 
-        console.log(foo); 
+        var foo = $.parseJSON(xhttp.responseText)
+        $.each(foo, function(index, value) { 
+            row(value)
+        })
+        uploadHtml();
     }
+    //xhttp.open("GET", "./getexecutes.php"); 
     xhttp.open("GET", "http://localhost:3000/getexecutes.php"); 
     xhttp.send(); 
 }
@@ -26,7 +79,6 @@ function switchView(str) {
         document.getElementById('adminList').style.display = 'flex';
         document.getElementById('adminAddExecute').style.display = 'inline';
     }
-        
 }
 
 function loadExecute() { 
@@ -46,10 +98,9 @@ function loadExecute() {
     pos = document.getElementById('position-input')
     pos.setAttribute('value', execute.position);
     document.getElementById("preview-position").innerHTML = execute.position;
-    //onPositionChange(pos)
 }   
 
-const execute = {
+var execute = {
     description: '',
     grenade: '', 
     throw: '', 
@@ -114,25 +165,23 @@ function onVideoUpload() {
 }
 
 function onMapChange(src) { 
-    execute.map = src.value;    
+    execute.map = src.value.toLowerCase();    
     path = `./icons/${execute.map}.png`;
     document.getElementById("preview-map").src = path; 
 }
 function onGrenadeChange(src) { 
-    execute.grenade = src.value; 
+    execute.grenade = src.value.toLowerCase(); 
     path = `./icons/${execute.grenade}.png`;
     document.getElementById("preview-grenade").src = path; 
 }
 function onTeamChange(src) { 
-    execute.team = src.value; 
+    execute.team = src.value.toLowerCase(); 
     path = `./icons/${execute.team}.png`;
     document.getElementById("preview-team").src = path; 
 }
 function onThrowChange(src) { 
-    execute.throw = src.value; 
-    parsed = `${execute.throw.toLowerCase().replaceAll(/\s/g,'')}`
-    parsed = `${parsed.replaceAll('+','')}`
-    path = `./icons/${parsed}_throw.png`;
+    execute.throw = src.value.toLowerCase().replaceAll(/\s/g,'').replaceAll('+','');
+    path = `./icons/${execute.throw}_throw.png`;
     document.getElementById('preview-throw').src = path; 
 }
 function onDescriptionChange(src) { 
