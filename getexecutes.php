@@ -5,7 +5,8 @@
     $db = "u395675147_cs2executes";
     $conn = mysqli_connect($server, $username, $password, $db);
 
-    $sql = "select * from executes"; 
+    //$sql = "select * from executes"; 
+    $sql = "CALL selectall"; 
     $result = mysqli_query($conn, $sql);
 
     $data = array(); 

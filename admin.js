@@ -1,8 +1,3 @@
-/* AJAX can be used to do many things in this proj
-    1) Read database to create html that we used python and copy-paste for 
-    2) Update webpage without taking it down
-    3) Add/Edit Executes in realtime
-*/
 var adminTable = `
     <div class="search-bar filter-title">
         <label>Search</label>

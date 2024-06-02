@@ -1,6 +1,16 @@
 //upload new code to file system
 //ensure on F12 menu that "Disable Cache" is checked.
 
+/* Itinerary: 
+    2` Search algorithm for Index & Admin page. 
+    1 Draft protocol for media storage
+        - Perhaps folders named with their Id number
+        - Folders contain 3 images & 1 video/gif. 
+        - Enforce size restrictions. 
+    3 Editing an Execute actually changes it 
+*/
+
+
 indexSection = `
     <section class="indexSection">
         <div class="search-bar filter-title">
