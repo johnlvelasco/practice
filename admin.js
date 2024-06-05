@@ -1,3 +1,25 @@
+
+/* Itinerary: 
+    2 Search algorithm for Index & Admin page. 
+    1 Draft protocol for media storage
+        - Folder: execute_{id}
+        - Media: {variable}_{id} 
+        - 30MB per media. 
+    3 Editing an Execute actually changes it 
+    4 Filters
+*/
+function getPath(funcName) { 
+    //return `./index.php?func=${funcName}`;
+    return `http://localhost:3000/index.php?func=${funcName}`;
+}
+
+function getFolder(id) { 
+    return `media\\execute_${id}`;
+}
+function getMedia(variable, id) { 
+    return `${getFolder(id)}/${variable}_${id}`;
+}
+
 var adminTable = `
     <div class="search-bar filter-title">
         <label>Search</label>
@@ -36,7 +58,7 @@ function row(value) {
         <td>${execute.team}</td>
         <td>${execute.position}</td>
         <td>
-            <button class="search" onclick="onEdit('${execute.description}', '${execute.grenade}', '${execute.throw}', '${execute.map}', '${execute.team}', '${execute.position}')">Edit</button>
+            <button class="search" onclick="onEdit('${execute.description}', '${execute.grenade}', '${execute.throw}', '${execute.map}', '${execute.team}', '${execute.position}', ${execute.id})">Edit</button>
         </td>
     </tr>`; 
 
@@ -57,8 +79,8 @@ function selectAll() {
         })
         uploadHtml();
     }
-    //xhttp.open("GET", "./getexecutes.php"); 
-    xhttp.open("GET", "http://localhost:3000/getexecutes.php"); 
+    path = getPath("getexecutes"); 
+    xhttp.open("GET", getPath("getexecutes")); 
     xhttp.send(); 
 }
 selectAll(); 
@@ -102,42 +124,59 @@ var execute = {
     map: '',
     team: '', 
     position: '', 
-    media: []
+    id: -1
 }
 
-function onEdit(des, gre, thr, map, team, pos) {
+function onEdit(des, gre, thr, map, team, pos, id) {
     execute.description = des;
     execute.grenade = gre;
     execute.throw = thr;
     execute.map = map;
     execute.team = team;
     execute.position = pos;
-    console.log(execute);
+    execute.id = id; 
+
+    //console.log(execute);
     switchView('edit');
     loadExecute();
 }
 
 let media = []; 
-function onFileUpload(id) { 
-    var fileInput = document.getElementById(id);
+function onFileUpload(mediaName) { 
+    var fileInput = document.getElementById(mediaName);
     var filePath = fileInput.value; 
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i; 
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i; 
     if (!allowedExtensions.exec(filePath)) {
         alert('Invalid file type');
         fileInput.value = '';
         return false;
     } 
-    // Image preview
-    if (fileInput.files && fileInput.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('preview-media').innerHTML += `<img src="${e.target.result}"/>`;
-            media.push(e.target.result);
-            document.getElementById('error-message').innerHTML = '';
-        };
-        reader.readAsDataURL(fileInput.files[0]);
+    //fileInput.preventDefault(); 
+    var file = fileInput.files[0]; 
+    var formData = new FormData(); 
+    formData.append('file', file, `${mediaName}_${execute.id}`); 
+    formData.append('folder', getFolder(execute.id)); 
+    formData.append('fileName', `${mediaName}_${execute.id}`); 
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open('POST', getPath('upload'), true); 
+    xhttp.onload = function() {
+        console.log(xhttp.response); 
+        if (xhttp.status == 200) { 
+            console.log("Upload connected & response: " + xhttp.response);
+        }
+        else { 
+            console.log(`upload failed ${xhttp.response}`); 
+        }
     }
+    xhttp.send(formData);
+    
+
+        //var finalPath = `./media/execute_${execute.id}/${mediaName}_${execute.id}`;
+        // document.getElementById('mediaPreview').innerHTML += `<img src="${filePath}" controls="controls"/>`; 
+    
 }
+
 function onVideoUpload() { 
     var fileInput = document.getElementById('video');
     var filePath = fileInput.value; 
@@ -151,8 +190,7 @@ function onVideoUpload() {
     if (fileInput.files && fileInput.files[0]) {
         var reader = new FileReader();
         reader.onload = function(e) {
-            document.getElementById('preview-media').innerHTML += `<video src="${e.target.result}" controls="controls"/>`;
-            media.push(e.target.result);
+            //document.getElementById('preview-media').innerHTML += `<video src="${e.target.result}" controls="controls"/>`;
             document.getElementById('error-message').innerHTML = '';
         };
         reader.readAsDataURL(fileInput.files[0]);

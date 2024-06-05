@@ -2,12 +2,13 @@
 //ensure on F12 menu that "Disable Cache" is checked.
 
 /* Itinerary: 
-    2` Search algorithm for Index & Admin page. 
+    2 Search algorithm for Index & Admin page. 
     1 Draft protocol for media storage
-        - Perhaps folders named with their Id number
-        - Folders contain 3 images & 1 video/gif. 
-        - Enforce size restrictions. 
+        - Folder: execute_{id}
+        - Media: {variable}_{id} 
+        - 30MB per media. 
     3 Editing an Execute actually changes it 
+    4 Filters
 */
 
 
@@ -74,7 +75,6 @@ function selectAll() {
         var foo = $.parseJSON(xhttp.responseText)
         $.each(foo, function(index, value) { 
             row(value)
-            //return false; 
         })
         uploadHtml();
     }
