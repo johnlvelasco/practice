@@ -8,7 +8,7 @@
 
 <body class="body">
     <div class="top-frame">
-        <button onclick="switchView()" class="logo-button logo" type="submit">
+        <button onclick="toAdmin()" class="logo-button logo" type="submit">
             <img class="logo" src="icons/logo_admin.png" alt="Counter Strike 2 Executes">
         </button>
         <button id="adminAddExecute" class="btn">Add Execute</button>
@@ -31,7 +31,7 @@
                     <label class="filter-title">Position</label>
                     <input id="position-input" class="search description" placeholder="T" type="text"
                         onchange="onPositionChange(this)">
-                    <br />
+                    <br/>
                 </div>
                 <div class="radio-buttons">
                     <div id="map-selection">
@@ -122,23 +122,26 @@
                     <div id="file-upload" class="upload">
                         <div class="upload">
                             <label class="filter-title">Position</label>
-                            <input type="file" id="position" class="search" onchange="onFileUpload('position')">
-                            <br />
+                            <input type="file" id="position" class="search" onchange="onFileUpload('position') ">
+                            <br/>
                         </div>
                         <div class="upload">
                             <label class="filter-title">Lineup</label>
                             <input type="file" id="lineup" class="search" onchange="onFileUpload('lineup')">
-                            <br />
+                            <br/>
                         </div>
                         <div class="upload">
                             <label class="filter-title">Landing</label>
                             <input type="file" id="landing" class="search" onchange="onFileUpload('landing')">
-                            <br />
+                            <br/>
                         </div>
                         <div class="upload">
                             <label class="filter-title">Video</label>
                             <input type="file" id="video" class="search" onchange="onVideoUpload()">
-                            <br />
+                            <br/>
+                        </div>
+                        <div class="upload">
+                            <button onclick="uploadFiles(event)">Submit Execute</button>
                         </div>
                     </div>
                 </div>

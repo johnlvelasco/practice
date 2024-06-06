@@ -1,4 +1,3 @@
-
 /* Itinerary: 
     2 Search algorithm for Index & Admin page. 
     1 Draft protocol for media storage
@@ -8,6 +7,7 @@
     3 Editing an Execute actually changes it 
     4 Filters
 */
+
 function getPath(funcName) { 
     //return `./index.php?func=${funcName}`;
     return `http://localhost:3000/index.php?func=${funcName}`;
@@ -85,18 +85,18 @@ function selectAll() {
 }
 selectAll(); 
 
-function switchView(str) { 
-    if (str == 'edit') { 
-        document.getElementById('adminList').style.display = 'none'; 
-        document.getElementById('adminEdit').style.display = 'inline';
-        document.getElementById('adminAddExecute').style.display = 'none';
-    } 
-    else {
-        document.getElementById('adminEdit').style.display = 'none'; 
-        document.getElementById('adminList').style.display = 'flex';
-        document.getElementById('adminAddExecute').style.display = 'inline';
-    }
+
+function toAdmin() { 
+    document.getElementById('adminEdit').style.display = 'none'; 
+    document.getElementById('adminList').style.display = 'flex';
+    document.getElementById('adminAddExecute').style.display = 'inline';
 }
+function toEdit() { 
+    document.getElementById('adminList').style.display = 'none'; 
+    document.getElementById('adminEdit').style.display = 'inline';
+    document.getElementById('adminAddExecute').style.display = 'none';
+}
+
 
 function loadExecute() { 
     //description
@@ -136,12 +136,12 @@ function onEdit(des, gre, thr, map, team, pos, id) {
     execute.position = pos;
     execute.id = id; 
 
-    //console.log(execute);
-    switchView('edit');
+    toEdit(); 
     loadExecute();
 }
 
-let media = []; 
+let files = new Map();  
+
 function onFileUpload(mediaName) { 
     var fileInput = document.getElementById(mediaName);
     var filePath = fileInput.value; 
@@ -151,30 +151,57 @@ function onFileUpload(mediaName) {
         fileInput.value = '';
         return false;
     } 
-    //fileInput.preventDefault(); 
-    var file = fileInput.files[0]; 
-    var formData = new FormData(); 
-    formData.append('file', file, `${mediaName}_${execute.id}`); 
-    formData.append('folder', getFolder(execute.id)); 
-    formData.append('fileName', `${mediaName}_${execute.id}`); 
+    files.set(mediaName, fileInput); 
+    // ev.preventDefault(); 
+    // ev.stopImmediatePropagation(); 
+    // var file = fileInput.files[0]; 
+    // var formData = new FormData(); 
+    // formData.append('file', file, `${mediaName}_${execute.id}`); 
+    // formData.append('folder', getFolder(execute.id)); 
+    // formData.append('fileName', `${mediaName}_${execute.id}`); 
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.open('POST', getPath('upload'), true); 
-    xhttp.onload = function() {
-        console.log(xhttp.response); 
-        if (xhttp.status == 200) { 
-            console.log("Upload connected & response: " + xhttp.response);
+    // var xhttp = new XMLHttpRequest();
+    // xhttp.open('POST', getPath('upload'), true); 
+    // xhttp.onload = function() {
+    //     console.log(xhttp.response); 
+    //     if (xhttp.status == 200) { 
+    //         console.log("Upload connected & response: " + xhttp.response);
+    //     }
+    //     else { 
+    //         console.log(`upload failed ${xhttp.response}`); 
+    //     }
+    // }
+    // //files.append(formData); 
+    // xhttp.send(formData);
+    // return false; 
+}
+
+function uploadFiles(ev) { 
+    ev.preventDefault(); 
+    ev.stopImmediatePropagation(); 
+    console.log(files); 
+    for (let [mediaName, fileInput] of files) { 
+        alert('loop: ' + mediaName); 
+        var file = fileInput.files[0]; 
+        var formData = new FormData(); 
+        formData.append('file', file, `${mediaName}_${execute.id}`); 
+        formData.append('folder', getFolder(execute.id)); 
+        formData.append('fileName', `${mediaName}_${execute.id}`); 
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('POST', getPath('upload'), true); 
+        xhttp.onload = function() {
+            console.log(xhttp.response); 
+            if (xhttp.status == 200) { 
+                alert("Upload connected & response: " + xhttp.response);
+            }
+            else { 
+                console.log(`upload failed ${xhttp.response}`); 
+            }
         }
-        else { 
-            console.log(`upload failed ${xhttp.response}`); 
-        }
+        xhttp.send(formData);
     }
-    xhttp.send(formData);
-    
-
-        //var finalPath = `./media/execute_${execute.id}/${mediaName}_${execute.id}`;
-        // document.getElementById('mediaPreview').innerHTML += `<img src="${filePath}" controls="controls"/>`; 
-    
+    return false; 
 }
 
 function onVideoUpload() { 
@@ -228,7 +255,6 @@ function onPositionChange(src) {
 }
 
 function inputCheck() { 
-    //1a
     if (document.querySelector('input[name="map"]:checked') == null) { 
         document.getElementById('error-message').innerHTML = "Please select a map";
         return false;
@@ -245,12 +271,10 @@ function inputCheck() {
         document.getElementById('error-message').innerHTML = "Please select a throw";
         return false;
     }
-    //1b
     if (document.getElementById('desc-input').value == '') { 
         document.getElementById('error-message').innerHTML = "Please enter a description";
         return false;
     }
-    //1c
     if (document.getElementById('position').value == '' && document.getElementById('lineup').value == '' && document.getElementById('landing').value == '' && document.getElementById('video').value == '') { 
         document.getElementById('error-message').innerHTML = "Please select an image or video";
         return false;

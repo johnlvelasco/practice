@@ -26,7 +26,6 @@
     }
 
     function upload() { header('Access-Control-Allow-Origin: *');
-        //error_reporting(E_ALL);
         $currentDir = getcwd(); 
         $file = $_FILES['file']; 
         $folder = $_POST["folder"];
@@ -47,7 +46,7 @@
 
                     $didUpload = move_uploaded_file($fileTmpName, $destPath); 
                     if ($didUpload) { 
-                        echo "The file " . $fileName . "was uploaded successfully"; 
+                        echo "The files were uploaded sucessfully"; 
                     } else { 
                         echo "File upload failed"; 
                     }
@@ -58,23 +57,6 @@
                 }
             }
         }
-        
-        //echo $destPath; 
-        // header('Access-Control-Allow-Origin: *');
-        // $file = $_FILES["file"];
-        // $folder = $_POST["folder"];
-        // $fileName = $_POST["fileName"];
-        // if (!file_exists($folder)) {
-        //     mkdir($folder, 0777, true);
-        // }
-        // $destPath = $folder . $fileName;
-
-        // if (move_uploaded_file($file, $destPath)) {
-        //     echo 'File is valid, and was successfully uploaded to ' . $destPath;
-
-        // } else {
-        //     echo 'File upload failed.';
-        // }
     }  
 
     if (isset($_GET['func'])) {
